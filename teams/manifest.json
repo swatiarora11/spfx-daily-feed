@@ -1,0 +1,63 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.11",
+    "version": "1.0.0",
+    "id": "c431701b-bdd8-4d68-a5e1-793070a4867c",
+    "packageName": "com.connections.app",
+    "developer": {
+        "name": "Microsoft",
+        "websiteUrl": "https://teams.microsoft.com",
+        "privacyUrl": "https://www.teams.com/privacy",
+        "termsOfUseUrl": "https://www.teams.com/termsofuse"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "Connections",
+        "full": "Connections"
+    },
+    "description": {
+        "short": "Connections-Landing Page",
+        "full": "Connections-Landing Page"
+    },
+    "accentColor": "#FD0018",
+    "staticTabs": [
+        {
+            "entityId": "1",
+            "name": "Connections",
+            "contentUrl": "https://m365x49279621.sharepoint.com/",
+            "websiteUrl": "https://m365x49279621.sharepoint.com/",
+            "scopes": [
+                "personal"
+            ]
+        },
+        {
+            "entityId": "about",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "m365x49279621.sharepoint.com"
+    ],
+    "webApplicationInfo": {
+        "id": "2efc9dbf-da53-40e0-a59c-a20a8d4e7c5e",
+        "resource": "https://m365x49279621.sharepoint.com"
+      },
+      "activities": {
+        "activityTypes": [
+          {
+            "type": "readThisRequired",
+            "description": "Just another activity",
+            "templateText": "{actor} created a new notification"
+          }
+        ]
+      }
+}
