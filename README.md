@@ -80,7 +80,7 @@ o	developer.termsOfUseUrl
  
 6.	Navigate to Microsoft Teams Admin Center. Under Teams apps > Manage apps section, click + Upload and upload ZIP package file created in the previous step. Once upload is complete, you will be able to see the Teams-Notification app under the Manage apps tab as shown below.
 
-<p> <img src="screenshots/Azureportal, manage teams-teams admin center.png"/>
+<p> <img src="screenshots/manage teams-teams admin center.png"/>
 
 7.	Ensure that Custom App policy permission has been enabled under Permission Policies
 
