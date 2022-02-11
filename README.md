@@ -31,14 +31,12 @@ To begin, you will need:
 * Office 365 account(s) with administrative rights for Exchange Online, Sharepoint Online and Microsoft Teams workloads.
 * A tenant App Catalog must have been created within the Apps option of the SharePoint Admin Center. Please see Set up your Office 365 tenant  and follow the Create app catalog site section. If your tenant-wide App Catalog has already been provisioned, you will need access to an account that has rights to upload a package to it to complete this setup process. Generally, this is an account with the SharePoint administrator role. If an account with that role does not work, go to the SharePoint admin center and find the Site Collection Administrators for the app catalog site collection and either log in as one of the Site Collection Administrators, or add the SharePoint administrator account that failed to the Site Collection Administrators. You will also need access to an account that is a SharePoint Tenant Admin.
 
-
 ## Steps for Deployment
 
 ### Configure SharePoint Online
 
 ### Step 1. Create  Viva connections site 
 https://docs.microsoft.com/en-us/viva/connections/viva-connections-overview
-
 
 ### Step 2.Create SharePoint List
 Open Site Contents on the Viva Connections Site and select New >> List. Select Blank List. Enter the name of the List as Chairman Speak.
@@ -48,22 +46,28 @@ Add the columns Title (Rename the Title column to Author), Live and Update in th
 
 ### Note: Do not create columns with name ID, Title, Created by and Modified by as they exist by default in the list.
 
-<p> <img src="Sharepoint Site-list.png"/>
+<p> <img src="screenshots/Sharepoint Site-list.png"/>
 
 ### Step 3 Upload the SPPKG file to Sharepoint app catalog
 To download the SPPKG file, navigate to the customlearning.sppkg file in the webpart folder of this repository. Select Download to save the file to your computer.
-The current solution is provided in it's packaged form in the web part folder customlearning.sppkg.
+The current solution is provided in it's packaged form in the web part folder ***customlearning***.sppkg.
 
 For uploading, Go to the Sharepoint admin center -> More features -> Apps -> App Catalog -> Apps for Sharepoint.
 Upload this file into the app catalog by selecting upload, finding the file, and then selecting Deploy.
+
+<p> <img src="screenshots/App catalog-sharepoint.png"/>
 
 To validate the version of the web part installed in your tenant you must have access to the tenant-wide App Catalog. The custom learning solution will be installed there and you can verify the current version number against the version number noted above.
 
 ### Step 4 Grant API Permissions
 Once the app package is uploaded, Navigate to API Access page in Sharepoint Admin center and approve the below permissions.
 
+<p> <img src="screenshots/API Access in SP.png"/>
+
 ### Step 5: Create and Install Teams App
 1.	Navigate to App registrations in Azure Portal and note the Application(client) ID of Sharepoint Online Client Extensibility Web application Principal.
+
+<p> <img src="screenshots/Azureportal, webapplicationid.png"/>
 
 2.	Download app.zip file from this git repository in teams folder and extract the same to a local folder.
 3.	Change following fields in the manifest.json (What's this) to values appropriate for your organization.
@@ -76,9 +80,12 @@ o	developer.termsOfUseUrl
  
 6.	Navigate to Microsoft Teams Admin Center. Under Teams apps > Manage apps section, click + Upload and upload ZIP package file created in the previous step. Once upload is complete, you will be able to see the Teams-Notification app under the Manage apps tab as shown below.
 
+<p> <img src="screenshots/Azureportal, manage teams-teams admin center.png"/>
+
 7.	Ensure that Custom App policy permission has been enabled under Permission Policies
 
 8.	Now add this app to App Setup Policies, which in turn will make the app visible to all users in Microsoft Teams canvas. To add this for all users, select Global Policy.
+<p> <img src="screenshots/App setup policy-teams admin center.png"/>
 
 9.	Now set the sequence to make the app visible to each user. We recommend to pin the app in the top 5, so that it is easily visible to end users on each client. Hit Save to make this change.
 
@@ -88,6 +95,7 @@ Once the Sharepoint package file is uploaded to App catalog.
 1.	Click the edit on the Sharepoint page
 2.	Click Add a new section (+) on the left-hand side of the page, and then click One Column.
 3.	Click +, then select DailyUpdate web part.
-
+<p> <img src="screenshots/Add Spfx webpart .png"/>
 
 Click on Edit Webpart, fill in the description details and Republish.
+<p> <img src="screenshots/Edit the webpart-description.png"/>
