@@ -44,11 +44,11 @@ https://docs.microsoft.com/en-us/viva/connections/viva-connections-overview
 Open Site Contents on the Viva Connections Site and select New >> List. Select Blank List. Enter the name of the List as Chairman Speak.
 Add the columns Title (Rename the Title column to Author), Live and Update in the list and select the type as shown below.
 
-
-
+<p> <img src="sharepoint list-settings.png"/>
 
 ### Note: Do not create columns with name ID, Title, Created by and Modified by as they exist by default in the list.
 
+<p> <img src="Sharepoint Site-list.png"/>
 
 ### Step 3 Upload the SPPKG file to Sharepoint app catalog
 To download the SPPKG file, navigate to the customlearning.sppkg file in the webpart folder of this repository. Select Download to save the file to your computer.
