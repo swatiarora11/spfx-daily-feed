@@ -44,7 +44,7 @@ https://docs.microsoft.com/en-us/viva/connections/viva-connections-overview
 Open Site Contents on the Viva Connections Site and select New >> List. Select Blank List. Enter the name of the List as Chairman Speak.
 Add the columns Title (Rename the Title column to Author), Live and Update in the list and select the type as shown below.
 
-<p> <img src="sharepoint list-settings.png"/>
+<p> <img src="screenshots/sharepoint list-settings.png"/>
 
 ### Note: Do not create columns with name ID, Title, Created by and Modified by as they exist by default in the list.
 
