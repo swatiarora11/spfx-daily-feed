@@ -6,7 +6,7 @@ import { DailyUpdateWebPartPropertyPane } from "./DailyUpdateWebPartPropertyPane
 import { IPropertyFieldSite } from "@pnp/spfx-property-controls/lib/PropertyFieldSitePicker";
 
 import { Services } from "../../services";
-import { IGroup, IUser } from "../../models";
+import { IGroup } from "../../models";
 
 import styles from './DailyUpdateWebPart.module.scss';
 import { DailyUpdate } from './DailyUpdate';
@@ -31,11 +31,20 @@ export default class DailyUpdateWebPart extends BaseClientSideWebPart<IDailyUpda
   private updates: DailyUpdate = undefined;
   private services: Services = undefined;
 
+  private forcedRefreshCount = 3;
   private timeoutId: number = 0;
   private setNextUpdateTimeOut(today: Date) {
-    var offsetMillis = this.updates.getNextDayTimeAt(6, 30).getTime() - today.getTime();
-    clearTimeout(this.timeoutId);
-    this.timeoutId = setTimeout(this.render, offsetMillis);
+    if(this.properties.selectedList) {
+      clearTimeout(this.timeoutId);
+      if(this.forcedRefreshCount <= 0) {
+        this.timeoutId = setTimeout(this.render, this.updates.getNextDayTimeAt(6, 30).getTime() - today.getTime()); 
+        this.forcedRefreshCount = 3; 
+      }
+      else {
+        this.timeoutId = setTimeout(this.render, 5000); 
+        this.forcedRefreshCount--;
+      } 
+    }
   }
 
   public async onInit(): Promise<void> {
@@ -55,39 +64,42 @@ export default class DailyUpdateWebPart extends BaseClientSideWebPart<IDailyUpda
   }
 
   public OnFeedButtonClick() {
-    this.updates.sendTeamsFeed();
+    this.updates.sendTeamsFeed(groups[this.properties.selectedGroupIdx], this.properties.teamsAppId, this.properties.adminUpn);
   }
 
   public render(): void {
-    console.log("rendering daily web part@ ");
+    console.log("Rendering daily web part " + this.forcedRefreshCount);
     var today = new Date();
-    this.updates._getDailyUpdate(today);
+    var site = this.properties.selectedSite;
+
+    if(site) {
+      this.updates._getDailyUpdate(today, site[0]?.id ?? "", this.properties.selectedList?.id ?? "");
+    }
 
     var feedButton = "";
     if(this.properties.adminUpn) {
-     feedButton = `<button id="btnSendFeed" type="submit" class="${ styles.button }">Send Feed</button>`;
+      feedButton = `<button id="btnSendFeed" type="submit" class="${ styles.button }">Send Feed</button>`;
     }
 
     this.domElement.innerHTML = `
-      <div class="${ styles.dailyUpdate }">
-        <div class="${ styles.container }">
-          <div class="${ styles.row }">
-            <div class="${ styles.column }">
-              <p> <img align = "right" src="${ this.properties.iconProperty}" alt="Chairman Image" style="width:200px;height:auto;"></p>
-            </div>
-            <div class="${ styles.column }">
-              <span class="${ styles.title }">${ "[" + this.updates.formattedDate + "] " }</span> 
-              <span class="${ styles.title }">${ this.properties?.title}</span>
-              <p class="${ styles.subTitle }">${ "~" + this.updates.author }</p>
-              <p class="${ styles.title }">${escape('\"' + this.updates.description + '\"')}</p>
-              <button id="btnRefresh" type="submit" class="${ styles.button }">Refresh</button>
-              ${ feedButton }
-              </div>           
-          </div>
-        </div>
-      </div>`;
-
-      document.getElementById('btnRefresh').addEventListener('click',()=>this.OnRefreshButtonClick());
+        <div class="${ styles.dailyUpdate }">
+          <table noborder>
+            <td width='25%'><img align = "right" src="${ this.properties.iconProperty}" alt="Chairman Image" style="width:200px;height:auto;"></td>
+            <td>
+              <div class="${ styles.container }">
+                <div class="${ styles.row }">
+                  <div class="${ styles.column }">
+                    <span class="${ styles.title }">${ "[" + this.updates.formattedDate + "] " }</span> 
+                    <span class="${ styles.title }">${ this.properties?.title}</span>
+                    <p class="${ styles.subTitle }">${ "~" + this.updates.author }</p>
+                    <p class="${ styles.title }">${escape('\"' + this.updates.description + '\"')}</p>
+                    ${ feedButton }
+                    </div>           
+                </div>
+              </div>
+            </td>
+          </table>
+        </div>`;
 
       if(this.properties.adminUpn) {
         document.getElementById('btnSendFeed').addEventListener('click',()=>this.OnFeedButtonClick()); 
@@ -131,22 +143,18 @@ export default class DailyUpdateWebPart extends BaseClientSideWebPart<IDailyUpda
       const site: IPropertyFieldSite[] = newValue as IPropertyFieldSite[];
       this.properties.selectedList = undefined;
       this.properties.selectedSite = site;
-      this.updates.siteId = site[0]?.id ?? "";
     }
     if (propertyPath == "selectedList" && newValue != oldValue) {
       this.properties.selectedList = newValue;
-      this.updates.listId = newValue.id;
     }
     if (propertyPath == "adminUpn" && newValue != oldValue) {
       this.properties.adminUpn = newValue;
     }
     if (propertyPath == "selectedGroupIdx" && newValue != oldValue) {
       this.properties.selectedGroupIdx = newValue;
-      this.updates.group = groups[this.properties.selectedGroupIdx];
     }
     if (propertyPath == "teamsAppId" && newValue != oldValue) {
       this.properties.teamsAppId = newValue;
-      this.updates.teamsAppId = this.properties.teamsAppId;
     }
 
     this.context.propertyPane.refresh();
