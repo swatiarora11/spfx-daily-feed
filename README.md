@@ -40,8 +40,8 @@ Though **SPFx Updates Webpart** can be used in any Sharepoint Online site, this 
 Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/connections/viva-connections-overview) to get step-by-step guidance on how to setup Viva Connections.
 
 ### Step 2. Create SharePoint List
-* Open **Site Contents** page on the Viva Connections site. Select New -> List. Select Blank List and enter the name of the List as **Chairman Speak**.
-* Rename the **Title** column to **Author** and add **Live** and **Update** column to the list and select the type as shown below.
+* Open **Site Contents** page on the Viva Connections site. Select **New -> List** then select **Blank List** and enter the name of the List as "Chairman Speak".
+* Rename the **Title** column to **Author** and add **Live**, **Update** columns to the list and select the type as shown below.
 
 <p> <img src="screenshots/sharepoint list-settings.png"/>
 
