@@ -15,7 +15,7 @@ To begin, you will need:
 
 This guide explains the deployment of SPFx Updates Webpart using an example wherein webpart is hosted in the Viva Connections page. An overview snapshot of the **SPFx Updates Webpart** highlighting its major sections is shown in the below figure. 
 
-<p> <img src="screenshots/webpart overview.jpeg"/>
+<p> <img src="screenshots/webpart overview.png"/>
 
 Let us dive into few details to understand configuration of this webpart and how it controls the content being shown in various sections of the webpart with the help of following figure.
 
