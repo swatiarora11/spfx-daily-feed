@@ -1,15 +1,29 @@
-# Spfx-Daily-feed Overview and Deployment Guide
+# SPFx Updates Webpart - Overview and Deployment Guide
 
-**Spfx daily feed web part** is a solution based on SPFx web parts that appear inside a SharePoint page. This webpart can be used to send notifications in teams about the daily updates and keep the employees engaged and informed about the latest conversations. This webpart has the integration with the SharePoint List, populates the data on webpage based on the scheduled frequency.
+**SPFx Updates Webpart** is a client side web part built using Sharepoint Framework (SPFx). This webpart has integration with a sharepoint list to pull prefed updates and display them on given dates. This webpart can also be used by admins to send activity feed in teams to keep the employees engaged and informed about the latest updates.
 
-Due to tight integration between SharePoint Online, Microsoft Teams, and Microsoft Viva Connections, admins can also use this webpart to customize and extend to all of these products. Currently, the deployment guide has the webpart hosted in Viva connections. It is  available in the Viva Connections Teams app on mobile, and will be available as a web part on desktop. 
-The solution supports scenarios like daily updates, announcements, relevant news, thought of the day, corporate communication etc.
+The webpart leverages the tight integration between SharePoint Online and Microsoft Teams to support scenarios like daily updates, announcements, relevant news, thought of the day, corporate communication etc.
 
-**Teams Notifications** Teams Activity Notifications can deliver a personalized feed to the employees with relevant information on sharepoint site from across their organization. The Feed automatically balances updated and engaging content with corporate communications to keep users interested, while also ensuring that they see the important messages. 
+<p> <img src="screenshots/webpart overview.jpeg"/>
 
-## Anatomy of the Webpart
+## Prerequisites 
 
-The webpart reflects dynamic content that refreshes based on the updates on Sharepoint List. 
+To begin, you will need:
+
+* An active subscription of Sharepoint Online and Microsoft Teams.
+* Office 365 account(s) with administrative rights for Sharepoint Online and Microsoft Teams workloads.
+
+## Deployment Guide
+
+This guide explains the deployment of SPFx Updates Webpart using an example wherein webpart is hosted in the Viva Connections page. Before we get into detailed steps of deployment, let us understand **anatomy of webpart** with the help of following figure.
+
+<p> <img src="screenshots/webpart anatomy.jpeg"/>
+
+## Steps for Deployment
+
+## Anatomy of Webpart
+
+The **SPFx Updates Webpart** comprises of following sections 
 
 ### **Title** Title of the Webpart
 ### **Picture Url** 
@@ -19,19 +33,6 @@ The webpart reflects dynamic content that refreshes based on the updates on Shar
 ### **Select Sites**
 ### **Select List**
 ### **Send Feed**
-
-## Deployment Guide
-
-### Prerequisites 
-
-To begin, you will need:
-
-* An Office 365 account that has an active subscription of Sharepoint Online and Microsoft Teams.
-* You will need to be a tenant administrator to be able to deploy this solution to the target tenant.
-* Office 365 account(s) with administrative rights for Exchange Online, Sharepoint Online and Microsoft Teams workloads.
-* A tenant App Catalog must have been created within the Apps option of the SharePoint Admin Center. Please see Set up your Office 365 tenant  and follow the Create app catalog site section. If your tenant-wide App Catalog has already been provisioned, you will need access to an account that has rights to upload a package to it to complete this setup process. Generally, this is an account with the SharePoint administrator role. If an account with that role does not work, go to the SharePoint admin center and find the Site Collection Administrators for the app catalog site collection and either log in as one of the Site Collection Administrators, or add the SharePoint administrator account that failed to the Site Collection Administrators. You will also need access to an account that is a SharePoint Tenant Admin.
-
-## Steps for Deployment
 
 ### Configure SharePoint Online
 
