@@ -33,14 +33,15 @@ All the mappings of webpart sections to corresponding configuration fields are s
 
 ## Deployment Guide
 
-### Configure SharePoint Online
+Though **SPFx Updates Webpart** can be used in any Sharepoint Online site, this deployment guide explains the steps required for deployment of this webpart with the help of an example Viva Connections application which is deployed in Sharepoint Online and also available in personal scope of various users of Microosoft Teams.
 
-#### Step 1. Create  Viva connections site 
-https://docs.microsoft.com/en-us/viva/connections/viva-connections-overview
+### Step 1. Setup Viva Connections
 
-#### Step 2.Create SharePoint List
-Open Site Contents on the Viva Connections Site and select New >> List. Select Blank List. Enter the name of the List as Chairman Speak.
-Add the columns Title (Rename the Title column to Author), Live and Update in the list and select the type as shown below.
+Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/connections/viva-connections-overview) to get step-by-step guidance on how to setup Viva Connections.
+
+### Step 2. Create SharePoint List
+* Open **Site Contents** page on the Viva Connections site. Select New -> List. Select Blank List and enter the name of the List as **Chairman Speak**.
+* Rename the **Title** column to **Author** and add **Live** and **Update** column to the list and select the type as shown below.
 
 <p> <img src="screenshots/sharepoint list-settings.png"/>
 
@@ -48,7 +49,7 @@ Add the columns Title (Rename the Title column to Author), Live and Update in th
 
 <p> <img src="screenshots/Sharepoint Site-list.png"/>
 
-#### Step 3 Upload the SPPKG file to Sharepoint app catalog
+### Step 3 Upload the SPPKG file to Sharepoint app catalog
 To download the SPPKG file, navigate to the customlearning.sppkg file in the webpart folder of this repository. Select Download to save the file to your computer.
 The current solution is provided in it's packaged form in the web part folder ***customlearning***.sppkg.
 
@@ -59,12 +60,14 @@ Upload this file into the app catalog by selecting upload, finding the file, and
 
 To validate the version of the web part installed in your tenant you must have access to the tenant-wide App Catalog. The custom learning solution will be installed there and you can verify the current version number against the version number noted above.
 
-#### Step 4 Grant API Permissions
+### Step 4 Grant API Permissions
 Once the app package is uploaded, Navigate to API Access page in Sharepoint Admin center and approve the below permissions.
 
 <p> <img src="screenshots/API Access in SP.png"/>
 
-#### Step 5: Create and Install Teams App
+### Create & Install Teams App
+
+### Step 5: Create and Install Teams App
 1.	Navigate to App registrations in Azure Portal and note the Application(client) ID of Sharepoint Online Client Extensibility Web application Principal.
 
 <p> <img src="screenshots/Azureportal, webapplicationid.png"/>
@@ -90,7 +93,7 @@ o	developer.termsOfUseUrl
 9.	Now set the sequence to make the app visible to each user. We recommend to pin the app in the top 5, so that it is easily visible to end users on each client. Hit Save to make this change.
 
 
-#### Step 6 Publish the Webpart in the sharepoint site
+### Step 6: Publish the Webpart in the sharepoint site
 Once the Sharepoint package file is uploaded to App catalog.
 1.	Click the edit on the Sharepoint page
 2.	Click Add a new section (+) on the left-hand side of the page, and then click One Column.
