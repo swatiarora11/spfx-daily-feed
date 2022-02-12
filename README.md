@@ -11,9 +11,9 @@ To begin, you will need:
 * An active subscription of Sharepoint Online and Microsoft Teams.
 * Office 365 account(s) with administrative rights for Sharepoint Online and Microsoft Teams workloads.
 
-## Deployment Guide
+## Anatomy of Webpart
 
-This guide explains the deployment of SPFx Updates Webpart using an example wherein webpart is hosted in the Viva Connections page. An overview snapshot of the **SPFx Updates Webpart** highlighting its major sections is shown in the below figure. 
+An overview snapshot of the **SPFx Updates Webpart** highlighting its major sections is shown in the below figure. 
 
 <p> <img src="screenshots/webpart overview.png"/>
 
@@ -25,19 +25,13 @@ Let us dive into few details to understand configuration of this webpart and how
 4. **Description** - sourced from the shrepoint list provided using **Select sites** and **Select a list** fields of webpart property pane
 5. **Send Feed Button** - 
     * enabled only for the user whose UPN is filled in **Admin UPN** field of webpart property pane
-    * On click of the "Send Feed" button, webpart sends teams activity feed to members of the O365 group selected in the **Select Group** field of webpart property pane
-    * activity feed will be successfully sent only if teams app with id filled in the **Teams App ID** field of webpart property pane is installed in the user's personal scope.
+    * On click of the **Send Feed Button**, webpart sends teams activity feed to members of the O365 group selected in the **Select Group** field of webpart property pane
+    * activity feed will be successfully sent only if Teams application with App ID filled in the **Teams App ID** field of webpart property pane is installed in user's personal scope.
 
-All the mappings of webpart sections to corresponding configuration fields is shown in the snapshot below.
+All the mappings of webpart sections to corresponding configuration fields are summarized in the snapshot below.
 <p> <img src="screenshots/webpart anatomy.jpeg"/>
 
-## Steps for Deployment
-
-## Anatomy of Webpart
-
-The **SPFx Updates Webpart** comprises of following sections 
-
-
+## Deployment Guide
 
 ### Configure SharePoint Online
 
