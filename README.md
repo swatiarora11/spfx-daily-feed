@@ -4,8 +4,6 @@
 
 The webpart leverages the tight integration between SharePoint Online and Microsoft Teams to support scenarios like daily updates, announcements, relevant news, thought of the day, corporate communication etc.
 
-<p> <img src="screenshots/webpart overview.jpeg"/>
-
 ## Prerequisites 
 
 To begin, you will need:
@@ -15,7 +13,11 @@ To begin, you will need:
 
 ## Deployment Guide
 
-This guide explains the deployment of SPFx Updates Webpart using an example wherein webpart is hosted in the Viva Connections page. Before we get into detailed steps of deployment, let us understand **anatomy of webpart** with the help of following figure.
+This guide explains the deployment of SPFx Updates Webpart using an example wherein webpart is hosted in the Viva Connections page. An overview snapshot of the **SPFx Updates Webpart** highlighting its major sections is shown in the below figure. 
+
+<p> <img src="screenshots/webpart overview.jpeg"/>
+
+Let us dive into few details to understand configuration of this webpart and how it controls the content being shown in various sections of the webpart with the help of following figure.
 
 <p> <img src="screenshots/webpart anatomy.jpeg"/>
 
