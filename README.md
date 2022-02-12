@@ -43,11 +43,10 @@ Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/c
 **Note:** Do not create columns with name **ID**, **Title**, **Created by** and **Modified by** as they exist by default in the list <img src="screenshots/Sharepoint Site-list.png"/>
 
 ### Step 3. Upload SPPKG to Sharepoint App Catalog
-Download the [Sharepoint Solution Package](https://github.com/swatiarora11/spfx-daily-feed/blob/main/sppkg/daily-update-webpart.sppkg) file from this repository and save the file to your computer.
+1. Download the [Sharepoint Solution Package](https://github.com/swatiarora11/spfx-daily-feed/blob/main/sppkg/daily-update-webpart.sppkg) file from this repository and save the file to your computer.
 
-For uploading, go to **Sharepoint Admin Center -> More features -> Apps -> App Catalog -> Apps for Sharepoint**.
-Upload this file into the **App Catalog** by selecting **Upload**, browsing the file in the downloaded folder and then selecting **Deploy**. 
-<img src="screenshots/App catalog-sharepoint.png"/>
+2. For uploading, go to **Sharepoint Admin Center -> More features -> Apps -> App Catalog -> Apps for Sharepoint**.
+Upload this file into the **App Catalog** by selecting **Upload**, browsing the file in the downloaded folder and then selecting **Deploy**. <img src="screenshots/App catalog-sharepoint.png"/>
 You will see that **SPFx Update Webpart** is now listed in the **App Catalog**.
 
 ### Step 4. Grant API Permissions
