@@ -69,9 +69,7 @@ Once the app package is uploaded, navigate to **API Access** page in **Sharepoin
 * termsOfUseUrl
 4.	Change the "id" field under "webApplicationInfo" section in the manifest to "Application (client) ID" value of **Sharepoint Online Client Extensibility Web application Principal** as copied in serial 1 above and save **manifest.json** file. 
 5.	Create a ZIP package with **manifest.json** and app icon files (**color.png** and **outline.png**). Make sure that there are no nested folders within this ZIP package.
-6.	Navigate to Microsoft Teams Admin Center. Under **Teams apps > Manage apps** section, click **+ Upload** and upload ZIP package file created in the previous step. Once upload is complete, you will be able to see the Connections app under the **Manage apps** tab as shown below.
-<img src="screenshots/manage teams-teams admin center.png"/>
-
+6.	Navigate to Microsoft Teams Admin Center. Under **Teams apps > Manage apps** section, click **+ Upload** and upload ZIP package file created in the previous step. Once upload is complete, you will be able to see the Connections app under the **Manage apps** tab as shown below.<img src="screenshots/manage teams-teams admin center.png"/>
 7.	Ensure that Custom App policy permission has been enabled under **Permission Policies**
 8.	Now add this app to **App Setup Policies**, which in turn will make the app visible to all users in Microsoft Teams canvas. To add this for all users, select **Global Policy**.
 <img src="screenshots/App setup policy-teams admin center.png"/>
