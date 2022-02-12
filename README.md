@@ -50,55 +50,53 @@ Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/c
 <img src="screenshots/Sharepoint Site-list.png"/>
 
 ### Step 3. Upload SPPKG to Sharepoint App Catalog
-To download the SPPKG file, navigate to the customlearning.sppkg file in the webpart folder of this repository. Select Download to save the file to your computer.
-The current solution is provided in it's packaged form in the web part folder ***customlearning***.sppkg.
+Download the [Sharepoint Solution Package](https://github.com/swatiarora11/spfx-daily-feed/blob/main/sppkg/daily-update-webpart.sppkg) file from this repository and save the file to your computer.
 
-For uploading, Go to the Sharepoint admin center -> More features -> Apps -> App Catalog -> Apps for Sharepoint.
-Upload this file into the app catalog by selecting upload, finding the file, and then selecting Deploy.
+For uploading, go to **Sharepoint Admin Center -> More features -> Apps -> App Catalog -> Apps for Sharepoint**.
+Upload this file into the **App Catalog** by selecting **Upload**, browsing the file in the downloaded folder and then selecting **Deploy**.
 
 <p> <img src="screenshots/App catalog-sharepoint.png"/>
 
-To validate the version of the web part installed in your tenant you must have access to the tenant-wide App Catalog. The custom learning solution will be installed there and you can verify the current version number against the version number noted above.
+You will see that **SPFx Update Webpart** is now listed in the **App Catalog**.
 
 ### Step 4. Grant API Permissions
-Once the app package is uploaded, Navigate to API Access page in Sharepoint Admin center and approve the below permissions.
+Once the app package is uploaded, navigate to **API Access** page in **Sharepoint Admin Center** and approve the below permissions.
 
 <p> <img src="screenshots/API Access in SP.png"/>
 
 ### Create & Install Teams App
 
 ### Step 5. Create and Install Teams App
-1.	Navigate to App registrations in Azure Portal and note the Application(client) ID of Sharepoint Online Client Extensibility Web application Principal.
+1.	Navigate to **App Registrations** in **Azure Portal** and copy the **Application(client) ID** of **Sharepoint Online Client Extensibility Web application Principal** app. We will need this later for installation of Teams App.
 
 <p> <img src="screenshots/Azureportal, webapplicationid.png"/>
 
-2.	Download app.zip file from this git repository in teams folder and extract the same to a local folder.
-3.	Change following fields in the manifest.json (What's this) to values appropriate for your organization.
-o	developer.name (What's this?)
-o	developer.websiteUrl
-o	developer.privacyUrl
-o	developer.termsOfUseUrl
-4.	Change the id field under webApplicationInfo section in the manifest to Application (client) Id value from Step 1(Application ID Sharepoint Online Client Extensibility Web application Principal ) and save manifest.json file. 
-5.	Create a ZIP package with manifest.json and app icon files (color.png and outline.png). Make sure that there are no nested folders within this ZIP package.
+2.	Download [teams.zip](https://github.com/swatiarora11/spfx-daily-feed/blob/main/sppkg/daily-update-webpart.sppkg) file from this git repository and extract the same to a local folder.
+3.	Change following fields in "developer" section of the downloaded **manifest.json** file to values as appropriate for your organization.
+    * name
+    * websiteUrl
+    * privacyUrl
+    * termsOfUseUrl
+
+4.	Change the "id" field under "webApplicationInfo" section in the manifest to "Application (client) ID" value of **Sharepoint Online Client Extensibility Web application Principal** as copied in serial 1 above and save **manifest.json** file. 
+5.	Create a ZIP package with **manifest.json** and app icon files (**color.png** and **outline.png**). Make sure that there are no nested folders within this ZIP package.
  
-6.	Navigate to Microsoft Teams Admin Center. Under Teams apps > Manage apps section, click + Upload and upload ZIP package file created in the previous step. Once upload is complete, you will be able to see the Teams-Notification app under the Manage apps tab as shown below.
+6.	Navigate to Microsoft Teams Admin Center. Under **Teams apps > Manage apps** section, click **+ Upload** and upload ZIP package file created in the previous step. Once upload is complete, you will be able to see the Connections app under the **Manage apps** tab as shown below.
 
 <p> <img src="screenshots/manage teams-teams admin center.png"/>
 
-7.	Ensure that Custom App policy permission has been enabled under Permission Policies
+7.	Ensure that Custom App policy permission has been enabled under **Permission Policies**
 
-8.	Now add this app to App Setup Policies, which in turn will make the app visible to all users in Microsoft Teams canvas. To add this for all users, select Global Policy.
+8.	Now add this app to **App Setup Policies**, which in turn will make the app visible to all users in Microsoft Teams canvas. To add this for all users, select **Global Policy**.
 <p> <img src="screenshots/App setup policy-teams admin center.png"/>
 
-9.	Now set the sequence to make the app visible to each user. We recommend to pin the app in the top 5, so that it is easily visible to end users on each client. Hit Save to make this change.
+9.	Now set the sequence to make the app visible to each user. We recommend to pin the app in the top 5, so that it is easily visible to end users on each client. Hit **Save** to make this change.
 
-
-### Step 6. Publish the Webpart in the sharepoint site
-Once the Sharepoint package file is uploaded to App catalog.
-1.	Click the edit on the Sharepoint page
-2.	Click Add a new section (+) on the left-hand side of the page, and then click One Column.
-3.	Click +, then select DailyUpdate web part.
+### Step 6. Publishing the Webpart
+1.	Edit the Sharepoint page where you would like to add the webpart.
+2.	Click **Add a new section (+)** on the left-hand side of the page, and then click **One Column**.
+3.	Click **+**, then select the **Update** web part.
 <p> <img src="screenshots/Add Spfx webpart .png"/>
 
-Click on Edit Webpart, fill in the description details and Republish.
+Click on **Edit Webpart** and configure the webpart as explained in **Anatomy of Webpart** section above and Republish.
 <p> <img src="screenshots/Edit the webpart-description.png"/>
