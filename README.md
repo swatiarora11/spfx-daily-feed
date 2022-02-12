@@ -17,8 +17,18 @@ This guide explains the deployment of SPFx Updates Webpart using an example wher
 
 <p> <img src="screenshots/webpart overview.png"/>
 
-Let us dive into few details to understand configuration of this webpart and how it controls the content being shown in various sections of the webpart with the help of following figure.
+Let us dive into few details to understand configuration of this webpart and how it controls the content being shown in various sections of the webpart. Each webpart section and corresponding fields of property pane configuration which affect webpart presentation and functionality is explained below.
 
+1. **Picture** - sourced from the url provided in the **Picture Url** field of webpart property pane
+2. **Title** - sourced from the text entered in the **Title** field of webpart property pane
+3. **Sub Title** - sourced from the shrepoint list provided using **Select sites** and **Select a list** fields of webpart property pane
+4. **Description** - sourced from the shrepoint list provided using **Select sites** and **Select a list** fields of webpart property pane
+5. **Send Feed Button** - 
+    * enabled only for the user whose UPN is filled in **Admin UPN** field of webpart property pane
+    * On click of the "Send Feed" button, webpart sends teams activity feed to members of the O365 group selected in the **Select Group** field of webpart property pane
+    * activity feed will be successfully sent only if teams app with id filled in the **Teams App ID** field of webpart property pane is installed in the user's personal scope.
+
+All the mappings of webpart sections to corresponding configuration fields is shown in the snapshot below.
 <p> <img src="screenshots/webpart anatomy.jpeg"/>
 
 ## Steps for Deployment
@@ -27,14 +37,7 @@ Let us dive into few details to understand configuration of this webpart and how
 
 The **SPFx Updates Webpart** comprises of following sections 
 
-### **Title** Title of the Webpart
-### **Picture Url** 
-### **Admin UPN**
-### **Select Group**
-### **Teams App ID**
-### **Select Sites**
-### **Select List**
-### **Send Feed**
+
 
 ### Configure SharePoint Online
 
